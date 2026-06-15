@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>About – Sciencephilia</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── About page styles ── */
+    .about-layout{display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start;padding:72px 0 90px}
+    .about-sidebar{display:flex;flex-direction:column;gap:14px;position:sticky;top:84px}
+    .portrait-box{
+      width:100%;aspect-ratio:1;border-radius:20px;
+      background:linear-gradient(145deg,var(--orange-t),#fde8dc);
+      border:1px solid rgba(232,132,90,.2);
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Syne',sans-serif;font-size:3.5rem;font-weight:800;
+      color:var(--orange);box-shadow:var(--shadow-md);
+    }
+    .p-chips{display:flex;flex-direction:column;gap:8px}
+    .p-chip{
+      font-size:.78rem;font-weight:600;padding:8px 14px;border-radius:8px;
+      text-align:center;border:1.5px solid;
+    }
+    .pc-o{background:var(--orange-t);color:var(--orange);border-color:rgba(232,132,90,.35)}
+    .pc-t{background:var(--teal-t);  color:var(--teal);  border-color:rgba(77,173,160,.35)}
+    .pc-g{background:var(--green-t); color:var(--green); border-color:rgba(91,168,118,.35)}
+
+    .about-body p{font-size:.97rem;color:var(--ink-mid);line-height:1.78;margin-bottom:20px}
+    .about-body em{color:var(--ink);font-style:italic}
+    .about-body strong{color:var(--ink);font-weight:700}
+    .about-greeting{
+      font-family:var(--font-display);font-style:italic;
+      font-size:1.4rem;color:var(--orange);margin-bottom:6px;
+    }
+    .about-name-head{
+      font-family:var(--font-display);font-size:2.2rem;font-weight:700;
+      color:var(--ink);margin-bottom:24px;line-height:1.1;
+    }
+    .about-checks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+    .ac-item{display:flex;gap:12px;align-items:flex-start}
+    .ac-check{
+      width:22px;height:22px;border-radius:6px;flex-shrink:0;margin-top:1px;
+      background:var(--green-t);border:1.5px solid var(--green);
+      color:var(--green);font-size:.78rem;font-weight:700;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .ac-title{font-weight:700;font-size:.88rem;color:var(--ink);margin-bottom:2px}
+    .ac-sub{font-size:.78rem;color:var(--ink-soft);line-height:1.5}
+
+    .fun-facts{
+      background:var(--paper-2);border:1px solid var(--line);
+      border-radius:var(--radius-lg);padding:28px;
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;
+      margin-top:36px;
+    }
+    .ff-item{display:flex;flex-direction:column;gap:5px}
+    .ff-label{font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft)}
+    .ff-val{font-size:.95rem;font-weight:600;color:var(--ink)}
+
+    @media(max-width:860px){
+      .about-layout{grid-template-columns:1fr;gap:40px}
+      .about-sidebar{position:static;flex-direction:row;flex-wrap:wrap;align-items:flex-start}
+      .portrait-box{width:180px;font-size:2.5rem}
+      .about-checks{grid-template-columns:1fr}
+      .fun-facts{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.svg" alt="Sciencephilia logo"/>
+    <span class="nav-logo-text">Sciencephilia</span>
+  </a>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a class="nav-link" href="index.html">Home</a></li>
+    <li><a class="nav-link active" href="about.html">About</a></li>
+    <li><a class="nav-link" href="courses.html">Courses</a></li>
+    <li><a class="nav-link" href="resources.html">Resources</a></li>
+    <li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+    <li><a class="nav-link nav-cta" href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">About</div>
+    <h1 class="page-hero-title">Meet Bhavna Saini</h1>
+    <p class="page-hero-sub">The educator behind Sciencephilia — and why students across the globe keep coming back.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="about-layout">
+    <div class="about-sidebar">
+      <div class="portrait-box">BS</div>
+      <div class="p-chips">
+        <div class="p-chip pc-o">MSc Chemistry</div>
+        <div class="p-chip pc-t">8+ Years Teaching</div>
+        <div class="p-chip pc-g">Award-Winning Educator</div>
+      </div>
+    </div>
+
+    <div class="about-body">
+      <p class="about-greeting">Hello, I'm Bhavna.</p>
+      <h2 class="about-name-head">Chemistry educator,<br/>mentor, and science enthusiast.</h2>
+      <p>I've spent over eight years doing one thing — helping students build a genuine, lasting relationship with Chemistry. Not just memorizing formulas for an exam, but actually <em>understanding</em> the science behind the world around them.</p>
+      <p>My students come from the US, UK, Canada, UAE, Japan, Ghana, and over 20 other countries. Some are prepping for the SAT Subject Test. Some are struggling through a tough chapter. Some are just starting out in Grade 8. Every single session I teach is shaped entirely around <strong>that one student's goals</strong>, not a one-size-fits-all curriculum.</p>
+      <p>I hold an MSc in Chemistry and have been recognized as an award-winning educator in my field. But what I'm most proud of? A student who sends me a message saying they actually enjoy Chemistry now.</p>
+
+      <div class="about-checks">
+        <div class="ac-item reveal">
+          <div class="ac-check">&#10003;</div>
+          <div>
+            <div class="ac-title">Interactive Teaching</div>
+            <div class="ac-sub">Visual aids, worked examples, real-time Q&amp;A in every session</div>
+          </div>
+        </div>
+        <div class="ac-item reveal">
+          <div class="ac-check">&#10003;</div>
+          <div>
+            <div class="ac-title">Custom Study Plans</div>
+            <div class="ac-sub">Every student gets a plan built around their syllabus and exam timeline</div>
+          </div>
+        </div>
+        <div class="ac-item reveal">
+          <div class="ac-check">&#10003;</div>
+          <div>
+            <div class="ac-title">Ongoing Support</div>
+            <div class="ac-sub">WhatsApp access between sessions for quick doubts and encouragement</div>
+          </div>
+        </div>
+        <div class="ac-item reveal">
+          <div class="ac-check">&#10003;</div>
+          <div>
+            <div class="ac-title">Transparent Progress</div>
+            <div class="ac-sub">Regular updates so you (and parents) always know where things stand</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fun-facts reveal">
+        <div class="ff-item">
+          <div class="ff-label">Education</div>
+          <div class="ff-val">MSc in Chemistry</div>
+        </div>
+        <div class="ff-item">
+          <div class="ff-label">Students Taught</div>
+          <div class="ff-val">500+ and counting</div>
+        </div>
+        <div class="ff-item">
+          <div class="ff-label">Countries Reached</div>
+          <div class="ff-val">20+ globally</div>
+        </div>
+        <div class="ff-item">
+          <div class="ff-label">Success Rate</div>
+          <div class="ff-val">98% improvement</div>
+        </div>
+        <div class="ff-item">
+          <div class="ff-label">Teaching Mode</div>
+          <div class="ff-val">100% Online (Zoom / Meet)</div>
+        </div>
+        <div class="ff-item">
+          <div class="ff-label">Languages</div>
+          <div class="ff-val">English, Hindi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="cta-banner">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 class="cta-title">Want to learn with Bhavna?</h2>
+      <p class="cta-sub">Book a free introductory session and let's find the right course for you.</p>
+    </div>
+    <a href="contact.html" class="btn btn-primary">Get in Touch &rarr;</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <img class="footer-logo-img" src="logo.svg" alt=""/>
+        <span class="footer-logo-text">Sciencephilia</span>
+      </div>
+      <p class="footer-tagline">Expert Chemistry tutoring for international students.</p>
+      <p class="footer-by">By <strong>Bhavna Saini</strong></p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Navigate</div>
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="courses.html">Courses</a><a href="resources.html">Resources</a>
+      <a href="testimonials.html">Testimonials</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Courses</div>
+      <a href="courses.html#sat">SAT Prep</a><a href="courses.html#one-on-one">One-on-One</a>
+      <a href="courses.html#group">Group Batch</a><a href="courses.html#crash">Crash Course</a>
+      <a href="courses.html#foundation">Foundation</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Contact</div>
+      <p>bhavna@sciencephilia.com</p><p>+91 98765 43210</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Sciencephilia · Bhavna Saini.</span>
+    <span>Online Chemistry Tuitions Worldwide</span>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

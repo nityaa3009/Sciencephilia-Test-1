@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Courses – Sciencephilia</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .courses-body{padding:72px 0 90px}
+    .course-block{
+      display:grid;grid-template-columns:1fr 1fr;gap:0;
+      border:1px solid var(--line);border-radius:var(--radius-lg);
+      overflow:hidden;margin-bottom:24px;
+      box-shadow:var(--shadow);
+      transition:box-shadow .2s;
+    }
+    .course-block:hover{box-shadow:var(--shadow-lg)}
+    .cb-info{padding:36px 32px;background:#fff}
+    .cb-accent{padding:36px 32px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+
+    .cb-eyebrow{
+      font-size:.66rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    .cb-title{
+      font-family:var(--font-display);font-size:1.6rem;font-weight:700;
+      color:var(--ink);margin-bottom:12px;line-height:1.2;
+    }
+    .cb-desc{font-size:.92rem;color:var(--ink-mid);line-height:1.72;margin-bottom:20px}
+    .cb-list{display:flex;flex-direction:column;gap:7px;margin-bottom:24px}
+    .cb-list li{
+      font-size:.84rem;color:var(--ink-mid);font-weight:500;
+      padding-left:16px;position:relative;
+    }
+    .cb-list li::before{
+      content:'';position:absolute;left:0;top:7px;
+      width:5px;height:5px;border-radius:50%;
+    }
+
+    /* per-course accent colors */
+    .cb-orange .cb-accent{background:var(--orange-t)}
+    .cb-orange .cb-eyebrow{color:var(--orange)}
+    .cb-orange .cb-list li::before{background:var(--orange)}
+    .cb-orange .cb-big{color:var(--orange)}
+
+    .cb-teal .cb-accent{background:var(--teal-t)}
+    .cb-teal .cb-eyebrow{color:var(--teal)}
+    .cb-teal .cb-list li::before{background:var(--teal)}
+    .cb-teal .cb-big{color:var(--teal)}
+
+    .cb-green .cb-accent{background:var(--green-t)}
+    .cb-green .cb-eyebrow{color:var(--green)}
+    .cb-green .cb-list li::before{background:var(--green)}
+    .cb-green .cb-big{color:var(--green)}
+
+    .cb-yellow .cb-accent{background:var(--yellow-t)}
+    .cb-yellow .cb-eyebrow{color:var(--yellow)}
+    .cb-yellow .cb-list li::before{background:var(--yellow)}
+    .cb-yellow .cb-big{color:var(--yellow)}
+
+    .cb-blue .cb-accent{background:var(--blue-t)}
+    .cb-blue .cb-eyebrow{color:var(--blue)}
+    .cb-blue .cb-list li::before{background:var(--blue)}
+    .cb-blue .cb-big{color:var(--blue)}
+
+    .cb-rose .cb-accent{background:var(--rose-t)}
+    .cb-rose .cb-eyebrow{color:var(--rose)}
+    .cb-rose .cb-list li::before{background:var(--rose)}
+    .cb-rose .cb-big{color:var(--rose)}
+
+    /* accent panel content */
+    .cb-big{
+      font-family:'Syne',sans-serif;font-size:4rem;
+      font-weight:800;line-height:1;margin-bottom:6px;
+    }
+    .cb-big-sub{font-size:.82rem;font-weight:600;color:var(--ink-soft)}
+    .cb-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+    .cb-tag{
+      font-size:.74rem;font-weight:600;
+      padding:5px 12px;border-radius:50px;
+      background:rgba(255,255,255,.7);color:var(--ink-mid);
+      border:1px solid rgba(26,26,30,.1);
+    }
+    .cb-best{
+      display:inline-block;
+      font-size:.68rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+      background:var(--orange);color:#fff;
+      padding:4px 12px;border-radius:50px;margin-bottom:14px;
+      align-self:flex-start;
+    }
+
+    /* flip accent to right on even cards */
+    .course-block:nth-child(even){direction:rtl}
+    .course-block:nth-child(even) *{direction:ltr}
+
+    @media(max-width:860px){
+      .course-block{grid-template-columns:1fr}
+      .course-block:nth-child(even){direction:ltr}
+      .cb-accent{order:-1}
+      .cb-big{font-size:3rem}
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.svg" alt="Sciencephilia logo"/>
+    <span class="nav-logo-text">Sciencephilia</span>
+  </a>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a class="nav-link" href="index.html">Home</a></li>
+    <li><a class="nav-link" href="about.html">About</a></li>
+    <li><a class="nav-link active" href="courses.html">Courses</a></li>
+    <li><a class="nav-link" href="resources.html">Resources</a></li>
+    <li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+    <li><a class="nav-link nav-cta" href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">Courses</div>
+    <h1 class="page-hero-title">What I Teach</h1>
+    <p class="page-hero-sub">Six carefully designed programmes — from SAT prep to foundation building. Every course shapes around your goals.</p>
+  </div>
+</div>
+
+<div class="wrap courses-body">
+
+  <div class="course-block cb-orange reveal" id="sat">
+    <div class="cb-info">
+      <div class="cb-eyebrow">Course 01 · SAT Chemistry Prep</div>
+      <h2 class="cb-title">SAT Chemistry Prep</h2>
+      <p class="cb-desc">Full SAT Subject Test preparation — covering every topic from atomic structure to electrochemistry — with timed practice sets and scored mock exams. Designed to take students from any starting point to their target score.</p>
+      <ul class="cb-list">
+        <li>Complete syllabus coverage — all SAT Chemistry topics</li>
+        <li>Past paper deep-dives with explained solutions</li>
+        <li>Weekly timed mock exams + performance review</li>
+        <li>Score improvement guarantee (subject to terms)</li>
+        <li>Study notes and formula sheets included</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Enquire About This Course</a>
+    </div>
+    <div class="cb-accent">
+      <span class="cb-best">Most Popular</span>
+      <div class="cb-big">SAT</div>
+      <div class="cb-big-sub">Subject Test Prep</div>
+      <div class="cb-tags">
+        <span class="cb-tag">Timed Practice</span>
+        <span class="cb-tag">Mock Exams</span>
+        <span class="cb-tag">Score Guarantee</span>
+        <span class="cb-tag">All Levels</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-block cb-teal reveal" id="one-on-one">
+    <div class="cb-info">
+      <div class="cb-eyebrow">Course 02 · One-on-One Classes</div>
+      <h2 class="cb-title">One-on-One Classes</h2>
+      <p class="cb-desc">Fully personalized sessions built entirely around your pace, your syllabus, and your specific areas of difficulty. Ideal for students who need dedicated attention and a custom path forward.</p>
+      <ul class="cb-list">
+        <li>Custom curriculum designed per student</li>
+        <li>Flexible scheduling across all time zones</li>
+        <li>Dedicated doubt-clearing in every session</li>
+        <li>WhatsApp support between sessions</li>
+        <li>Weekly progress reports sent to student (and parents)</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Enquire About This Course</a>
+    </div>
+    <div class="cb-accent">
+      <div class="cb-big">1:1</div>
+      <div class="cb-big-sub">Fully Personalized</div>
+      <div class="cb-tags">
+        <span class="cb-tag">Custom Plan</span>
+        <span class="cb-tag">Flexible Timing</span>
+        <span class="cb-tag">All Syllabi</span>
+        <span class="cb-tag">Global Students</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-block cb-green reveal" id="group">
+    <div class="cb-info">
+      <div class="cb-eyebrow">Course 03 · Group Batch Classes</div>
+      <h2 class="cb-title">Group Batch Classes</h2>
+      <p class="cb-desc">Small cohorts of up to 6 students for collaborative, discussion-driven learning. Peer interaction, shared problem-solving, and a structured pace make this an effective and affordable option.</p>
+      <ul class="cb-list">
+        <li>Maximum 6 students per batch — no large classrooms</li>
+        <li>Peer learning through in-session discussions</li>
+        <li>Shared study materials and assignment sheets</li>
+        <li>Live Q&amp;A at the end of every session</li>
+        <li>Monthly group progress summary</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Enquire About This Course</a>
+    </div>
+    <div class="cb-accent">
+      <div class="cb-big">≤6</div>
+      <div class="cb-big-sub">Students per Batch</div>
+      <div class="cb-tags">
+        <span class="cb-tag">Peer Learning</span>
+        <span class="cb-tag">Affordable</span>
+        <span class="cb-tag">Structured</span>
+        <span class="cb-tag">Small Groups</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-block cb-yellow reveal" id="crash">
+    <div class="cb-info">
+      <div class="cb-eyebrow">Course 04 · Exam Crash Course</div>
+      <h2 class="cb-title">Exam Crash Course</h2>
+      <p class="cb-desc">Intensive pre-exam revision covering high-yield topics, MCQ strategies, and last-minute consolidation. For students with limited time who need focused, efficient preparation.</p>
+      <ul class="cb-list">
+        <li>High-yield topic focus — what actually appears in exams</li>
+        <li>MCQ technique and elimination strategies</li>
+        <li>Condensed revision notes provided</li>
+        <li>Full mock test with post-exam review included</li>
+        <li>Scheduled around your exam date</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Enquire About This Course</a>
+    </div>
+    <div class="cb-accent">
+      <div class="cb-big">Fast</div>
+      <div class="cb-big-sub">Intensive Revision</div>
+      <div class="cb-tags">
+        <span class="cb-tag">Pre-Exam</span>
+        <span class="cb-tag">High-Yield</span>
+        <span class="cb-tag">MCQ Strategy</span>
+        <span class="cb-tag">Rapid Results</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-block cb-blue reveal" id="doubt">
+    <div class="cb-info">
+      <div class="cb-eyebrow">Course 05 · Doubt-Clearing Sessions</div>
+      <h2 class="cb-title">Doubt-Clearing Sessions</h2>
+      <p class="cb-desc">Standalone sessions to resolve specific concepts or problems. No long-term commitment — book as many or as few sessions as you need, whenever you need them.</p>
+      <ul class="cb-list">
+        <li>Book on demand — no monthly commitment</li>
+        <li>Deep-dive into any concept or problem set</li>
+        <li>Session notes and worked solutions provided</li>
+        <li>Works alongside any other tutor or class</li>
+        <li>Quick turnaround booking (usually within 24–48 hrs)</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Book a Session</a>
+    </div>
+    <div class="cb-accent">
+      <div class="cb-big">Any<br/>time</div>
+      <div class="cb-big-sub">No Commitment</div>
+      <div class="cb-tags">
+        <span class="cb-tag">On Demand</span>
+        <span class="cb-tag">Flexible</span>
+        <span class="cb-tag">Instant Help</span>
+        <span class="cb-tag">Any Topic</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="course-block cb-rose reveal" id="foundation">
+    <div class="cb-info">
+      <div class="cb-eyebrow">Course 06 · Foundation Chemistry</div>
+      <h2 class="cb-title">Foundation Chemistry</h2>
+      <p class="cb-desc">For students in Grades 8–10 building their first real relationship with Chemistry. Structured, visual, and engaging — designed to make the fundamentals feel intuitive and fun.</p>
+      <ul class="cb-list">
+        <li>Basics to intermediate — atoms to reactions</li>
+        <li>Visual aids and experiment-based understanding</li>
+        <li>Builds directly toward higher-level courses</li>
+        <li>Parent progress updates every two weeks</li>
+        <li>Friendly, encouraging pacing for young learners</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Enquire About This Course</a>
+    </div>
+    <div class="cb-accent">
+      <div class="cb-big">Gr.<br/>8–10</div>
+      <div class="cb-big-sub">Foundation Level</div>
+      <div class="cb-tags">
+        <span class="cb-tag">Beginners</span>
+        <span class="cb-tag">Visual Learning</span>
+        <span class="cb-tag">Parent Updates</span>
+        <span class="cb-tag">Fun &amp; Structured</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<section class="cta-banner">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 class="cta-title">Not sure which course fits?</h2>
+      <p class="cta-sub">Reach out and I'll help you figure out the right starting point.</p>
+    </div>
+    <a href="contact.html" class="btn btn-primary">Get in Touch &rarr;</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><img class="footer-logo-img" src="logo.svg" alt=""/><span class="footer-logo-text">Sciencephilia</span></div>
+      <p class="footer-tagline">Expert Chemistry tutoring for international students.</p>
+      <p class="footer-by">By <strong>Bhavna Saini</strong></p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Navigate</div>
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="courses.html">Courses</a><a href="resources.html">Resources</a>
+      <a href="testimonials.html">Testimonials</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Courses</div>
+      <a href="#sat">SAT Prep</a><a href="#one-on-one">One-on-One</a>
+      <a href="#group">Group Batch</a><a href="#crash">Crash Course</a>
+      <a href="#foundation">Foundation</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Contact</div>
+      <p>bhavna@sciencephilia.com</p><p>+91 98765 43210</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Sciencephilia · Bhavna Saini.</span>
+    <span>Online Chemistry Tuitions Worldwide</span>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

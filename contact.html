@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact – Sciencephilia</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── Contact page ── */
+    .contact-body { padding: 72px 0 96px; }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* Left panel */
+    .contact-left { display: flex; flex-direction: column; gap: 20px; }
+
+    .cl-intro-title {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .cl-intro-text {
+      font-size: .93rem;
+      color: var(--ink-mid);
+      line-height: 1.75;
+    }
+
+    .contact-details { display: flex; flex-direction: column; gap: 12px; }
+    .cd-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      box-shadow: var(--shadow);
+      transition: box-shadow .18s;
+    }
+    .cd-item:hover { box-shadow: var(--shadow-md); }
+    .cd-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+    .cd-label {
+      font-size: .68rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--ink-soft); margin-bottom: 3px;
+    }
+    .cd-val { font-size: .92rem; font-weight: 600; color: var(--ink); }
+
+    /* availability card */
+    .avail-card {
+      background: var(--orange-t);
+      border: 1px solid rgba(232,132,90,.25);
+      border-radius: var(--radius);
+      padding: 20px 20px;
+    }
+    .avail-title {
+      font-family: 'Syne', sans-serif;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 12px;
+    }
+    .avail-slots { display: flex; flex-direction: column; gap: 8px; }
+    .avail-slot {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .83rem;
+    }
+    .avail-day { font-weight: 600; color: var(--ink); }
+    .avail-time { color: var(--ink-soft); font-weight: 500; }
+    .avail-dot-open  { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+    .avail-dot-full  { width: 8px; height: 8px; border-radius: 50%; background: var(--rose); }
+    .avail-note {
+      font-size: .76rem; color: var(--ink-soft);
+      margin-top: 12px; line-height: 1.5;
+    }
+
+    /* Form */
+    .contact-form {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+    }
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 28px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex; flex-direction: column; gap: 6px;
+      margin-bottom: 18px;
+    }
+    .form-group.full { grid-column: span 2; }
+    .form-group label {
+      font-size: .78rem; font-weight: 700;
+      color: var(--ink); letter-spacing: .1px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 11px 14px;
+      border: 1.5px solid rgba(26,26,30,.15);
+      border-radius: 9px;
+      font-family: var(--font-ui);
+      font-size: .9rem;
+      color: var(--ink);
+      background: var(--paper);
+      outline: none;
+      transition: border-color .18s, box-shadow .18s;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(232,132,90,.12);
+    }
+    .form-group select { cursor: pointer; }
+
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 8px 0 20px;
+    }
+
+    .form-note {
+      font-size: .78rem; color: var(--ink-soft);
+      margin-bottom: 18px; line-height: 1.55;
+    }
+
+    .form-success {
+      display: none;
+      margin-top: 14px;
+      padding: 13px 16px;
+      background: var(--green-t);
+      border: 1.5px solid var(--green);
+      border-radius: 9px;
+      font-size: .88rem; font-weight: 600;
+      color: var(--green);
+      text-align: center;
+    }
+
+    /* FAQ strip */
+    .faq-section {
+      margin-top: 80px;
+      padding-top: 64px;
+      border-top: 1px solid var(--line);
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      box-shadow: var(--shadow);
+    }
+    .faq-q {
+      font-family: var(--font-display);
+      font-size: 1rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 8px;
+    }
+    .faq-a { font-size: .86rem; color: var(--ink-mid); line-height: 1.68; }
+
+    @media(max-width: 960px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-left { order: 2; }
+      .contact-form { order: 1; }
+    }
+    @media(max-width: 640px) {
+      .contact-form { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: span 1; }
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.svg" alt="Sciencephilia logo"/>
+    <span class="nav-logo-text">Sciencephilia</span>
+  </a>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a class="nav-link" href="index.html">Home</a></li>
+    <li><a class="nav-link" href="about.html">About</a></li>
+    <li><a class="nav-link" href="courses.html">Courses</a></li>
+    <li><a class="nav-link" href="resources.html">Resources</a></li>
+    <li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+    <li><a class="nav-link nav-cta active" href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">Contact</div>
+    <h1 class="page-hero-title">Get in Touch</h1>
+    <p class="page-hero-sub">Have a question, want to enroll, or just want to explore options? I respond within 24 hours.</p>
+  </div>
+</div>
+
+<div class="wrap contact-body">
+  <div class="contact-layout">
+
+    <!-- LEFT -->
+    <div class="contact-left">
+      <div>
+        <h3 class="cl-intro-title">Let's talk about your goals.</h3>
+        <p class="cl-intro-text">Whether you're looking to enroll in a course, need help with a specific topic, or simply want to understand whether this is the right fit — fill in the form and I'll get back to you promptly.</p>
+      </div>
+
+      <div class="contact-details">
+        <div class="cd-item reveal">
+          <div class="cd-dot" style="background:var(--orange)"></div>
+          <div>
+            <div class="cd-label">Email</div>
+            <div class="cd-val">bhavna@sciencephilia.com</div>
+          </div>
+        </div>
+        <div class="cd-item reveal">
+          <div class="cd-dot" style="background:var(--teal)"></div>
+          <div>
+            <div class="cd-label">WhatsApp</div>
+            <div class="cd-val">+91 98765 43210</div>
+          </div>
+        </div>
+        <div class="cd-item reveal">
+          <div class="cd-dot" style="background:var(--green)"></div>
+          <div>
+            <div class="cd-label">Response Time</div>
+            <div class="cd-val">Within 24 hours</div>
+          </div>
+        </div>
+        <div class="cd-item reveal">
+          <div class="cd-dot" style="background:var(--blue)"></div>
+          <div>
+            <div class="cd-label">Time Zone</div>
+            <div class="cd-val">IST — flexible for all zones</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Availability card -->
+      <div class="avail-card reveal">
+        <div class="avail-title">Current Availability</div>
+        <div class="avail-slots">
+          <div class="avail-slot">
+            <span class="avail-day">Mon / Wed / Fri</span>
+            <span class="avail-time">9 AM – 8 PM IST</span>
+            <span class="avail-dot-open"></span>
+          </div>
+          <div class="avail-slot">
+            <span class="avail-day">Tue / Thu</span>
+            <span class="avail-time">2 PM – 8 PM IST</span>
+            <span class="avail-dot-open"></span>
+          </div>
+          <div class="avail-slot">
+            <span class="avail-day">Saturday</span>
+            <span class="avail-time">10 AM – 4 PM IST</span>
+            <span class="avail-dot-open"></span>
+          </div>
+          <div class="avail-slot">
+            <span class="avail-day">Sunday</span>
+            <span class="avail-time">Closed</span>
+            <span class="avail-dot-full"></span>
+          </div>
+        </div>
+        <p class="avail-note">All timings in IST. Sessions can be adjusted for US, UK, and Gulf time zones on request.</p>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <form class="contact-form" id="contactForm">
+      <div class="form-title">Send a message</div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" placeholder="Your name" required/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="you@email.com" required/>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" id="country" placeholder="Where are you based?"/>
+        </div>
+        <div class="form-group">
+          <label for="course">Course of Interest</label>
+          <select id="course">
+            <option value="">Select a course…</option>
+            <option>SAT Chemistry Prep</option>
+            <option>One-on-One Classes</option>
+            <option>Group Batch Classes</option>
+            <option>Exam Crash Course</option>
+            <option>Doubt-Clearing Sessions</option>
+            <option>Foundation Chemistry</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="form-divider"/>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="level">Current Grade / Level</label>
+          <input type="text" id="level" placeholder="e.g. Grade 11, IB Year 1"/>
+        </div>
+        <div class="form-group">
+          <label for="exam">Upcoming Exam (if any)</label>
+          <input type="text" id="exam" placeholder="e.g. SAT, A-Levels, IGCSE"/>
+        </div>
+      </div>
+
+      <div class="form-group full">
+        <label for="message">Message *</label>
+        <textarea id="message" rows="5" placeholder="Tell me about your goals, current challenges, and any questions you have…" required></textarea>
+      </div>
+
+      <p class="form-note">By submitting this form you agree to be contacted via email or WhatsApp regarding your enquiry. I don't share your details with anyone.</p>
+
+      <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+      <div class="form-success" id="formSuccess">
+        Message received — I'll be in touch within 24 hours.
+      </div>
+    </form>
+
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <div class="sec-header" style="text-align:left;margin-bottom:0">
+      <div class="sec-eyebrow ey-teal">FAQ</div>
+      <h2 class="sec-title">Common Questions</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <div class="faq-q">What platform are sessions held on?</div>
+        <div class="faq-a">All sessions are conducted online via Zoom or Google Meet. A stable internet connection and a device with a screen large enough to share documents comfortably is all you need.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Do you accommodate different time zones?</div>
+        <div class="faq-a">Yes. I work with students from the US, UK, Canada, UAE, Japan, and many more countries. Session times are agreed upon during our introductory call and can flex around your schedule.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Is there a trial or introductory session?</div>
+        <div class="faq-a">Yes — I offer a free 20-minute introductory call to understand your goals, level, and which course is the right fit. No commitment required. Just reach out via the form above.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">What syllabi do you cover?</div>
+        <div class="faq-a">SAT Subject Test, IB Chemistry (SL and HL), IGCSE, A-Levels, AP Chemistry, and most national board syllabi. If you're unsure, mention it in your message and I'll confirm.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Can I switch courses mid-way?</div>
+        <div class="faq-a">Absolutely. If your needs change — say you start with doubt-clearing and want to move to a full one-on-one plan — that transition is easy and can be arranged with a week's notice.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">How are payments handled?</div>
+        <div class="faq-a">Payment details are shared during onboarding. I accept international transfers, PayPal, and UPI. Monthly billing is standard; per-session billing is available for doubt-clearing.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <img class="footer-logo-img" src="logo.svg" alt=""/>
+        <span class="footer-logo-text">Sciencephilia</span>
+      </div>
+      <p class="footer-tagline">Expert Chemistry tutoring for international students — personalized, structured, and results-driven.</p>
+      <p class="footer-by">By <strong>Bhavna Saini</strong></p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Navigate</div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="courses.html">Courses</a>
+      <a href="resources.html">Resources</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Courses</div>
+      <a href="courses.html#sat">SAT Prep</a>
+      <a href="courses.html#one-on-one">One-on-One</a>
+      <a href="courses.html#group">Group Batch</a>
+      <a href="courses.html#crash">Crash Course</a>
+      <a href="courses.html#foundation">Foundation</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Contact</div>
+      <p>bhavna@sciencephilia.com</p>
+      <p>+91 98765 43210</p>
+      <p style="margin-top:6px;font-size:.78rem">Responds within 24 hours</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Sciencephilia · Bhavna Saini. All rights reserved.</span>
+    <span>Online Chemistry Tuitions Worldwide</span>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Resources – Sciencephilia</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── Resources page ── */
+    .res-body{padding:72px 0 96px}
+
+    /* Filter tabs */
+    .res-filters{
+      display:flex;gap:8px;flex-wrap:wrap;
+      margin-bottom:48px;
+      padding-bottom:20px;
+      border-bottom:1px solid var(--line);
+    }
+    .res-filter-btn{
+      font-size:.8rem;font-weight:600;padding:8px 18px;border-radius:8px;
+      border:1.5px solid var(--line);background:#fff;color:var(--ink-mid);
+      cursor:pointer;transition:all .15s;font-family:var(--font-ui);
+    }
+    .res-filter-btn:hover{border-color:var(--orange);color:var(--orange)}
+    .res-filter-btn.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+
+    /* Course section */
+    .course-section{margin-bottom:60px}
+    .course-section.hidden{display:none}
+    .cs-header{
+      display:flex;align-items:center;gap:14px;
+      margin-bottom:20px;padding:16px 20px;
+      border-radius:var(--radius);
+      border:1.5px solid;
+    }
+    .cs-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+    .cs-name{
+      font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--ink);
+    }
+    .cs-count{
+      margin-left:auto;font-size:.75rem;font-weight:600;
+      padding:4px 12px;border-radius:50px;
+    }
+
+    /* color per section */
+    .cs-orange .cs-header{background:var(--orange-t);border-color:rgba(232,132,90,.3)}
+    .cs-orange .cs-dot{background:var(--orange)}
+    .cs-orange .cs-count{background:var(--orange);color:#fff}
+
+    .cs-teal .cs-header{background:var(--teal-t);border-color:rgba(77,173,160,.3)}
+    .cs-teal .cs-dot{background:var(--teal)}
+    .cs-teal .cs-count{background:var(--teal);color:#fff}
+
+    .cs-green .cs-header{background:var(--green-t);border-color:rgba(91,168,118,.3)}
+    .cs-green .cs-dot{background:var(--green)}
+    .cs-green .cs-count{background:var(--green);color:#fff}
+
+    .cs-yellow .cs-header{background:var(--yellow-t);border-color:rgba(212,168,67,.3)}
+    .cs-yellow .cs-dot{background:var(--yellow)}
+    .cs-yellow .cs-count{background:var(--yellow);color:#fff}
+
+    .cs-blue .cs-header{background:var(--blue-t);border-color:rgba(91,143,191,.3)}
+    .cs-blue .cs-dot{background:var(--blue)}
+    .cs-blue .cs-count{background:var(--blue);color:#fff}
+
+    .cs-rose .cs-header{background:var(--rose-t);border-color:rgba(196,114,138,.3)}
+    .cs-rose .cs-dot{background:var(--rose)}
+    .cs-rose .cs-count{background:var(--rose);color:#fff}
+
+    /* PDF grid */
+    .pdf-grid{
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+      gap:14px;
+    }
+    .pdf-card{
+      background:#fff;border:1px solid var(--line);
+      border-radius:var(--radius);padding:20px 18px;
+      display:flex;flex-direction:column;gap:10px;
+      box-shadow:var(--shadow);
+      transition:transform .18s,box-shadow .18s;
+      text-decoration:none;
+    }
+    .pdf-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+    .pdf-icon{
+      width:44px;height:44px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;flex-shrink:0;
+      background:var(--paper-2);
+    }
+    .pdf-icon svg{width:22px;height:22px}
+    .pdf-name{font-size:.9rem;font-weight:700;color:var(--ink);line-height:1.35}
+    .pdf-meta{font-size:.74rem;color:var(--ink-soft);font-weight:500}
+    .pdf-dl{
+      display:inline-flex;align-items:center;gap:5px;
+      font-size:.78rem;font-weight:700;margin-top:auto;
+      padding:7px 14px;border-radius:7px;border:1.5px solid;
+      transition:all .15s;align-self:flex-start;
+    }
+
+    /* per-course pdf card accent */
+    .cs-orange .pdf-dl{color:var(--orange);border-color:rgba(232,132,90,.35)}
+    .cs-orange .pdf-dl:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
+    .cs-orange .pdf-icon{background:var(--orange-t)}
+    .cs-orange .pdf-icon svg{stroke:var(--orange)}
+
+    .cs-teal .pdf-dl{color:var(--teal);border-color:rgba(77,173,160,.35)}
+    .cs-teal .pdf-dl:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+    .cs-teal .pdf-icon{background:var(--teal-t)}
+    .cs-teal .pdf-icon svg{stroke:var(--teal)}
+
+    .cs-green .pdf-dl{color:var(--green);border-color:rgba(91,168,118,.35)}
+    .cs-green .pdf-dl:hover{background:var(--green);color:#fff;border-color:var(--green)}
+    .cs-green .pdf-icon{background:var(--green-t)}
+    .cs-green .pdf-icon svg{stroke:var(--green)}
+
+    .cs-yellow .pdf-dl{color:var(--yellow);border-color:rgba(212,168,67,.35)}
+    .cs-yellow .pdf-dl:hover{background:var(--yellow);color:#fff;border-color:var(--yellow)}
+    .cs-yellow .pdf-icon{background:var(--yellow-t)}
+    .cs-yellow .pdf-icon svg{stroke:var(--yellow)}
+
+    .cs-blue .pdf-dl{color:var(--blue);border-color:rgba(91,143,191,.35)}
+    .cs-blue .pdf-dl:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+    .cs-blue .pdf-icon{background:var(--blue-t)}
+    .cs-blue .pdf-icon svg{stroke:var(--blue)}
+
+    .cs-rose .pdf-dl{color:var(--rose);border-color:rgba(196,114,138,.35)}
+    .cs-rose .pdf-dl:hover{background:var(--rose);color:#fff;border-color:var(--rose)}
+    .cs-rose .pdf-icon{background:var(--rose-t)}
+    .cs-rose .pdf-icon svg{stroke:var(--rose)}
+
+    /* notice box */
+    .res-notice{
+      background:var(--paper-2);border:1px solid var(--line);
+      border-radius:var(--radius);padding:18px 22px;
+      display:flex;gap:12px;align-items:flex-start;
+      margin-bottom:40px;
+    }
+    .res-notice-dot{
+      width:8px;height:8px;border-radius:50%;background:var(--orange);
+      flex-shrink:0;margin-top:5px;
+    }
+    .res-notice p{font-size:.84rem;color:var(--ink-mid);line-height:1.6}
+    .res-notice strong{color:var(--ink)}
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-logo-img" src="logo.svg" alt="Sciencephilia logo"/>
+    <span class="nav-logo-text">Sciencephilia</span>
+  </a>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a class="nav-link" href="index.html">Home</a></li>
+    <li><a class="nav-link" href="about.html">About</a></li>
+    <li><a class="nav-link" href="courses.html">Courses</a></li>
+    <li><a class="nav-link active" href="resources.html">Resources</a></li>
+    <li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+    <li><a class="nav-link nav-cta" href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">Resources</div>
+    <h1 class="page-hero-title">Study Materials</h1>
+    <p class="page-hero-sub">Notes, worksheets, practice papers and guides — organized by course. Download and study at your own pace.</p>
+  </div>
+</div>
+
+<div class="wrap res-body">
+
+  <div class="res-notice">
+    <div class="res-notice-dot"></div>
+    <p><strong>Note:</strong> These materials are shared for reference and study support. They are meant to complement your sessions, not replace them. New content is added regularly — check back often!</p>
+  </div>
+
+  <!-- Filter Tabs -->
+  <div class="res-filters">
+    <button class="res-filter-btn active" data-filter="all">All Materials</button>
+    <button class="res-filter-btn" data-filter="sat-prep">SAT Prep</button>
+    <button class="res-filter-btn" data-filter="one-on-one">One-on-One</button>
+    <button class="res-filter-btn" data-filter="group-batch">Group Batch</button>
+    <button class="res-filter-btn" data-filter="crash-course">Crash Course</button>
+    <button class="res-filter-btn" data-filter="doubt-clearing">Doubt Clearing</button>
+    <button class="res-filter-btn" data-filter="foundation">Foundation</button>
+  </div>
+
+  <!-- SAT PREP -->
+  <div class="course-section cs-orange" data-section="sat-prep">
+    <div class="cs-header">
+      <div class="cs-dot"></div>
+      <div class="cs-name">SAT Chemistry Prep</div>
+      <div class="cs-count">4 files</div>
+    </div>
+    <div class="pdf-grid">
+      <a class="pdf-card" href="assets/sat-prep/SAT_Chemistry_Syllabus.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">SAT Chemistry Syllabus</div>
+        <div class="pdf-meta">Overview · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/sat-prep/Atomic_Structure_Notes.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Atomic Structure Notes</div>
+        <div class="pdf-meta">Chapter Notes · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/sat-prep/Electrochemistry_Practice.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Electrochemistry Practice Set</div>
+        <div class="pdf-meta">Practice Questions · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/sat-prep/Mock_Test_1.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Mock Test 1</div>
+        <div class="pdf-meta">Full Practice Exam · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ONE-ON-ONE -->
+  <div class="course-section cs-teal" data-section="one-on-one">
+    <div class="cs-header">
+      <div class="cs-dot"></div>
+      <div class="cs-name">One-on-One Classes</div>
+      <div class="cs-count">3 files</div>
+    </div>
+    <div class="pdf-grid">
+      <a class="pdf-card" href="assets/one-on-one/Custom_Study_Plan_Template.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Custom Study Plan Template</div>
+        <div class="pdf-meta">Planning · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/one-on-one/Organic_Chemistry_Notes.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Organic Chemistry Notes</div>
+        <div class="pdf-meta">Chapter Notes · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/one-on-one/Weekly_Progress_Sheet.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Weekly Progress Sheet</div>
+        <div class="pdf-meta">Tracking · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- GROUP BATCH -->
+  <div class="course-section cs-green" data-section="group-batch">
+    <div class="cs-header">
+      <div class="cs-dot"></div>
+      <div class="cs-name">Group Batch Classes</div>
+      <div class="cs-count">3 files</div>
+    </div>
+    <div class="pdf-grid">
+      <a class="pdf-card" href="assets/group-batch/Group_Schedule_June2025.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Group Schedule — June 2025</div>
+        <div class="pdf-meta">Schedule · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/group-batch/Periodic_Table_Reference.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Periodic Table Reference</div>
+        <div class="pdf-meta">Reference Sheet · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/group-batch/Batch_Assignment_1.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Batch Assignment 1</div>
+        <div class="pdf-meta">Assignment · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- CRASH COURSE -->
+  <div class="course-section cs-yellow" data-section="crash-course">
+    <div class="cs-header">
+      <div class="cs-dot"></div>
+      <div class="cs-name">Exam Crash Course</div>
+      <div class="cs-count">3 files</div>
+    </div>
+    <div class="pdf-grid">
+      <a class="pdf-card" href="assets/crash-course/High_Yield_Topics_Checklist.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">High-Yield Topics Checklist</div>
+        <div class="pdf-meta">Revision Guide · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/crash-course/MCQ_Strategy_Guide.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">MCQ Strategy Guide</div>
+        <div class="pdf-meta">Exam Technique · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/crash-course/Rapid_Revision_Notes.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Rapid Revision Notes</div>
+        <div class="pdf-meta">Summary Sheet · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- DOUBT CLEARING -->
+  <div class="course-section cs-blue" data-section="doubt-clearing">
+    <div class="cs-header">
+      <div class="cs-dot"></div>
+      <div class="cs-name">Doubt-Clearing Sessions</div>
+      <div class="cs-count">2 files</div>
+    </div>
+    <div class="pdf-grid">
+      <a class="pdf-card" href="assets/doubt-clearing/Common_Mistakes_Guide.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Common Mistakes Guide</div>
+        <div class="pdf-meta">Reference · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/doubt-clearing/Formula_Sheet.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Formula Sheet</div>
+        <div class="pdf-meta">Quick Reference · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOUNDATION -->
+  <div class="course-section cs-rose" data-section="foundation">
+    <div class="cs-header">
+      <div class="cs-dot"></div>
+      <div class="cs-name">Foundation Chemistry</div>
+      <div class="cs-count">3 files</div>
+    </div>
+    <div class="pdf-grid">
+      <a class="pdf-card" href="assets/foundation/Intro_to_Chemistry.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Introduction to Chemistry</div>
+        <div class="pdf-meta">Chapter 1 Notes · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/foundation/States_of_Matter.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">States of Matter</div>
+        <div class="pdf-meta">Chapter Notes · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/foundation/Acids_and_Bases_Basics.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Acids &amp; Bases — Basics</div>
+        <div class="pdf-meta">Chapter Notes · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<section class="cta-banner">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 class="cta-title">Want course-specific materials?</h2>
+      <p class="cta-sub">Enroll in a course and get access to a full, curated library for your programme.</p>
+    </div>
+    <a href="courses.html" class="btn btn-primary">View Courses &rarr;</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><img class="footer-logo-img" src="logo.svg" alt=""/><span class="footer-logo-text">Sciencephilia</span></div>
+      <p class="footer-tagline">Expert Chemistry tutoring for international students.</p>
+      <p class="footer-by">By <strong>Bhavna Saini</strong></p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Navigate</div>
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="courses.html">Courses</a><a href="resources.html">Resources</a>
+      <a href="testimonials.html">Testimonials</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Courses</div>
+      <a href="courses.html#sat">SAT Prep</a><a href="courses.html#one-on-one">One-on-One</a>
+      <a href="courses.html#group">Group Batch</a><a href="courses.html#crash">Crash Course</a>
+      <a href="courses.html#foundation">Foundation</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Contact</div>
+      <p>bhavna@sciencephilia.com</p><p>+91 98765 43210</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Sciencephilia · Bhavna Saini.</span>
+    <span>Online Chemistry Tuitions Worldwide</span>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+  // Filter logic
+  const filterBtns = document.querySelectorAll('.res-filter-btn');
+  const sections   = document.querySelectorAll('.course-section');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      sections.forEach(sec => {
+        if (filter === 'all' || sec.dataset.section === filter) {
+          sec.classList.remove('hidden');
+        } else {
+          sec.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
