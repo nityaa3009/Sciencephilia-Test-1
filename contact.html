@@ -244,13 +244,6 @@
           </div>
         </div>
         <div class="cd-item reveal">
-          <div class="cd-dot" style="background:var(--teal)"></div>
-          <div>
-            <div class="cd-label">WhatsApp</div>
-            <div class="cd-val">+91 98765 43210</div>
-          </div>
-        </div>
-        <div class="cd-item reveal">
           <div class="cd-dot" style="background:var(--green)"></div>
           <div>
             <div class="cd-label">Response Time</div>
@@ -296,36 +289,36 @@
     </div>
 
     <!-- FORM -->
-    <form class="contact-form" id="contactForm">
+    <form class="contact-form" id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbxDrV48tOtl3YgDbxyCpSxi79taDVNPjzyuiLZWNkv-qjJkhs85dG7CG58PtXt9f8z1/exec">
       <div class="form-title">Send a message</div>
 
       <div class="form-row">
         <div class="form-group">
           <label for="name">Full Name *</label>
-          <input type="text" id="name" placeholder="Your name" required/>
+          <input type="text" name="name" id="name" placeholder="Your name" required/>
         </div>
         <div class="form-group">
           <label for="email">Email Address *</label>
-          <input type="email" id="email" placeholder="you@email.com" required/>
+          <input type="email" name="email" id="email" placeholder="you@email.com" required/>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label for="country">Country</label>
-          <input type="text" id="country" placeholder="Where are you based?"/>
+          <input type="text" name="country" id="country" placeholder="Where are you based?"/>
         </div>
         <div class="form-group">
           <label for="course">Course of Interest</label>
-          <select id="course">
+          <select name="course" id="course">
             <option value="">Select a course…</option>
-            <option>SAT Chemistry Prep</option>
-            <option>One-on-One Classes</option>
-            <option>Group Batch Classes</option>
-            <option>Exam Crash Course</option>
-            <option>Doubt-Clearing Sessions</option>
-            <option>Foundation Chemistry</option>
-            <option>Not sure yet</option>
+            <option value="SAT Chemistry Prep">SAT Chemistry Prep</option>
+            <option value="One-on-One Classes">One-on-One Classes</option>
+            <option value="Group Batch Classes">Group Batch Classes</option>
+            <option value="Exam Crash Course">Exam Crash Course</option>
+            <option value="Doubt-Clearing Sessions">Doubt-Clearing Sessions</option>
+            <option value="Foundation Chemistry">Foundation Chemistry</option>
+            <option value="Not sure yet">Not sure yet</option>
           </select>
         </div>
       </div>
@@ -335,17 +328,17 @@
       <div class="form-row">
         <div class="form-group">
           <label for="level">Current Grade / Level</label>
-          <input type="text" id="level" placeholder="e.g. Grade 11, IB Year 1"/>
+          <input type="text" name="level" id="level" placeholder="e.g. Grade 11, IB Year 1"/>
         </div>
         <div class="form-group">
           <label for="exam">Upcoming Exam (if any)</label>
-          <input type="text" id="exam" placeholder="e.g. SAT, A-Levels, IGCSE"/>
+          <input type="text" name="exam" id="exam" placeholder="e.g. SAT, A-Levels, IGCSE"/>
         </div>
       </div>
 
       <div class="form-group full">
         <label for="message">Message *</label>
-        <textarea id="message" rows="5" placeholder="Tell me about your goals, current challenges, and any questions you have…" required></textarea>
+        <textarea name="message" id="message" rows="5" placeholder="Tell me about your goals, current challenges, and any questions you have…" required></textarea>
       </div>
 
       <p class="form-note">By submitting this form you agree to be contacted via email or WhatsApp regarding your enquiry. I don't share your details with anyone.</p>
