@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Resources – Sciencephilia</title>
+  <title>Resources – Dr. Bhavna Saini</title>
   <link rel="icon" type="image/svg+xml" href="logo.svg"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
@@ -142,6 +142,21 @@
     }
     .res-notice p{font-size:.84rem;color:var(--ink-mid);line-height:1.6}
     .res-notice strong{color:var(--ink)}
+
+    .footer-inner > div:first-child{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .footer-col{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .footer-col a{
+      display:block;
+      line-height:1.5;
+    }
   </style>
 </head>
 <body>
@@ -165,7 +180,7 @@
   <div class="page-hero-inner">
     <div class="page-hero-eyebrow">Resources</div>
     <h1 class="page-hero-title">Study Materials</h1>
-    <p class="page-hero-sub">Notes, worksheets, practice papers and guides — organized by course. Download and study at your own pace.</p>
+    <p class="page-hero-sub">Notes, worksheets, practice papers, and guides organized by high school, pre-college, and college chemistry levels.</p>
   </div>
 </div>
 
@@ -173,189 +188,105 @@
 
   <div class="res-notice">
     <div class="res-notice-dot"></div>
-    <p><strong>Note:</strong> These materials are shared for reference and study support. They are meant to complement your sessions, not replace them. New content is added regularly — check back often!</p>
+    <p><strong>Note:</strong> These materials are shared for reference and study support. They are meant to complement your sessions, not replace them. New content is added regularly for each chemistry level — check back often!</p>
   </div>
 
   <!-- Filter Tabs -->
   <div class="res-filters">
     <button class="res-filter-btn active" data-filter="all">All Materials</button>
-    <button class="res-filter-btn" data-filter="sat-prep">SAT Prep</button>
-    <button class="res-filter-btn" data-filter="one-on-one">One-on-One</button>
-    <button class="res-filter-btn" data-filter="group-batch">Group Batch</button>
-    <button class="res-filter-btn" data-filter="crash-course">Crash Course</button>
-    <button class="res-filter-btn" data-filter="doubt-clearing">Doubt Clearing</button>
-    <button class="res-filter-btn" data-filter="foundation">Foundation</button>
+    <button class="res-filter-btn" data-filter="high-school">High School</button>
+    <button class="res-filter-btn" data-filter="pre-college">Pre-College</button>
+    <button class="res-filter-btn" data-filter="college">College</button>
   </div>
 
-  <!-- SAT PREP -->
-  <div class="course-section cs-orange" data-section="sat-prep">
+  <!-- HIGH SCHOOL -->
+  <div class="course-section cs-orange" data-section="high-school">
     <div class="cs-header">
       <div class="cs-dot"></div>
-      <div class="cs-name">SAT Chemistry Prep</div>
+      <div class="cs-name">High School Chemistry Honors, IGCSE, and MYP Chemistry 4-5</div>
       <div class="cs-count">4 files</div>
     </div>
     <div class="pdf-grid">
-      <a class="pdf-card" href="assets/sat-prep/SAT_Chemistry_Syllabus.pdf" target="_blank">
+      <a class="pdf-card" href="assets/high-school/High_School_Chemistry_Overview.pdf" target="_blank">
         <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">SAT Chemistry Syllabus</div>
+        <div class="pdf-name">High School Chemistry Overview</div>
         <div class="pdf-meta">Overview · PDF</div>
         <span class="pdf-dl">Download ↓</span>
       </a>
-      <a class="pdf-card" href="assets/sat-prep/Atomic_Structure_Notes.pdf" target="_blank">
+      <a class="pdf-card" href="assets/high-school/Atomic_Structure_Notes.pdf" target="_blank">
         <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
         <div class="pdf-name">Atomic Structure Notes</div>
         <div class="pdf-meta">Chapter Notes · PDF</div>
         <span class="pdf-dl">Download ↓</span>
       </a>
-      <a class="pdf-card" href="assets/sat-prep/Electrochemistry_Practice.pdf" target="_blank">
-        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">Electrochemistry Practice Set</div>
-        <div class="pdf-meta">Practice Questions · PDF</div>
-        <span class="pdf-dl">Download ↓</span>
-      </a>
-      <a class="pdf-card" href="assets/sat-prep/Mock_Test_1.pdf" target="_blank">
-        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">Mock Test 1</div>
-        <div class="pdf-meta">Full Practice Exam · PDF</div>
-        <span class="pdf-dl">Download ↓</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- ONE-ON-ONE -->
-  <div class="course-section cs-teal" data-section="one-on-one">
-    <div class="cs-header">
-      <div class="cs-dot"></div>
-      <div class="cs-name">One-on-One Classes</div>
-      <div class="cs-count">3 files</div>
-    </div>
-    <div class="pdf-grid">
-      <a class="pdf-card" href="assets/one-on-one/Custom_Study_Plan_Template.pdf" target="_blank">
-        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">Custom Study Plan Template</div>
-        <div class="pdf-meta">Planning · PDF</div>
-        <span class="pdf-dl">Download ↓</span>
-      </a>
-      <a class="pdf-card" href="assets/one-on-one/Organic_Chemistry_Notes.pdf" target="_blank">
-        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">Organic Chemistry Notes</div>
-        <div class="pdf-meta">Chapter Notes · PDF</div>
-        <span class="pdf-dl">Download ↓</span>
-      </a>
-      <a class="pdf-card" href="assets/one-on-one/Weekly_Progress_Sheet.pdf" target="_blank">
-        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">Weekly Progress Sheet</div>
-        <div class="pdf-meta">Tracking · PDF</div>
-        <span class="pdf-dl">Download ↓</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- GROUP BATCH -->
-  <div class="course-section cs-green" data-section="group-batch">
-    <div class="cs-header">
-      <div class="cs-dot"></div>
-      <div class="cs-name">Group Batch Classes</div>
-      <div class="cs-count">3 files</div>
-    </div>
-    <div class="pdf-grid">
-      <a class="pdf-card" href="assets/group-batch/Group_Schedule_June2025.pdf" target="_blank">
-        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">Group Schedule — June 2025</div>
-        <div class="pdf-meta">Schedule · PDF</div>
-        <span class="pdf-dl">Download ↓</span>
-      </a>
-      <a class="pdf-card" href="assets/group-batch/Periodic_Table_Reference.pdf" target="_blank">
+      <a class="pdf-card" href="assets/high-school/Periodic_Table_Reference.pdf" target="_blank">
         <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
         <div class="pdf-name">Periodic Table Reference</div>
         <div class="pdf-meta">Reference Sheet · PDF</div>
         <span class="pdf-dl">Download ↓</span>
       </a>
-      <a class="pdf-card" href="assets/group-batch/Batch_Assignment_1.pdf" target="_blank">
+      <a class="pdf-card" href="assets/high-school/Mixed_Practice_Set_1.pdf" target="_blank">
         <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">Batch Assignment 1</div>
-        <div class="pdf-meta">Assignment · PDF</div>
+        <div class="pdf-name">Mixed Practice Set 1</div>
+        <div class="pdf-meta">Practice Questions · PDF</div>
         <span class="pdf-dl">Download ↓</span>
       </a>
     </div>
   </div>
 
-  <!-- CRASH COURSE -->
-  <div class="course-section cs-yellow" data-section="crash-course">
+  <!-- PRE-COLLEGE -->
+  <div class="course-section cs-teal" data-section="pre-college">
     <div class="cs-header">
       <div class="cs-dot"></div>
-      <div class="cs-name">Exam Crash Course</div>
+      <div class="cs-name">AP Chemistry, IGCSE AS and A Level, and IB Chemistry (HL)</div>
       <div class="cs-count">3 files</div>
     </div>
     <div class="pdf-grid">
-      <a class="pdf-card" href="assets/crash-course/High_Yield_Topics_Checklist.pdf" target="_blank">
+      <a class="pdf-card" href="assets/pre-college/AP_Chemistry_Syllabus.pdf" target="_blank">
         <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">High-Yield Topics Checklist</div>
-        <div class="pdf-meta">Revision Guide · PDF</div>
+        <div class="pdf-name">AP Chemistry Syllabus</div>
+        <div class="pdf-meta">Overview · PDF</div>
         <span class="pdf-dl">Download ↓</span>
       </a>
-      <a class="pdf-card" href="assets/crash-course/MCQ_Strategy_Guide.pdf" target="_blank">
+      <a class="pdf-card" href="assets/pre-college/IB_Chemistry_HL_Notes.pdf" target="_blank">
         <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">MCQ Strategy Guide</div>
-        <div class="pdf-meta">Exam Technique · PDF</div>
+        <div class="pdf-name">IB Chemistry (HL) Notes</div>
+        <div class="pdf-meta">Chapter Notes · PDF</div>
         <span class="pdf-dl">Download ↓</span>
       </a>
-      <a class="pdf-card" href="assets/crash-course/Rapid_Revision_Notes.pdf" target="_blank">
+      <a class="pdf-card" href="assets/pre-college/Organic_Chemistry_Review.pdf" target="_blank">
         <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">Rapid Revision Notes</div>
-        <div class="pdf-meta">Summary Sheet · PDF</div>
-        <span class="pdf-dl">Download ↓</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- DOUBT CLEARING -->
-  <div class="course-section cs-blue" data-section="doubt-clearing">
-    <div class="cs-header">
-      <div class="cs-dot"></div>
-      <div class="cs-name">Doubt-Clearing Sessions</div>
-      <div class="cs-count">2 files</div>
-    </div>
-    <div class="pdf-grid">
-      <a class="pdf-card" href="assets/doubt-clearing/Common_Mistakes_Guide.pdf" target="_blank">
-        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">Common Mistakes Guide</div>
-        <div class="pdf-meta">Reference · PDF</div>
-        <span class="pdf-dl">Download ↓</span>
-      </a>
-      <a class="pdf-card" href="assets/doubt-clearing/Formula_Sheet.pdf" target="_blank">
-        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">Formula Sheet</div>
-        <div class="pdf-meta">Quick Reference · PDF</div>
+        <div class="pdf-name">Organic Chemistry Review</div>
+        <div class="pdf-meta">Practice · PDF</div>
         <span class="pdf-dl">Download ↓</span>
       </a>
     </div>
   </div>
 
-  <!-- FOUNDATION -->
-  <div class="course-section cs-rose" data-section="foundation">
+  <!-- COLLEGE -->
+  <div class="course-section cs-green" data-section="college">
     <div class="cs-header">
       <div class="cs-dot"></div>
-      <div class="cs-name">Foundation Chemistry</div>
+      <div class="cs-name">General Chemistry I & II and Organic Chemistry</div>
       <div class="cs-count">3 files</div>
     </div>
     <div class="pdf-grid">
-      <a class="pdf-card" href="assets/foundation/Intro_to_Chemistry.pdf" target="_blank">
+      <a class="pdf-card" href="assets/college/General_Chemistry_I_Notes.pdf" target="_blank">
         <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">Introduction to Chemistry</div>
-        <div class="pdf-meta">Chapter 1 Notes · PDF</div>
-        <span class="pdf-dl">Download ↓</span>
-      </a>
-      <a class="pdf-card" href="assets/foundation/States_of_Matter.pdf" target="_blank">
-        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">States of Matter</div>
+        <div class="pdf-name">General Chemistry I Notes</div>
         <div class="pdf-meta">Chapter Notes · PDF</div>
         <span class="pdf-dl">Download ↓</span>
       </a>
-      <a class="pdf-card" href="assets/foundation/Acids_and_Bases_Basics.pdf" target="_blank">
+      <a class="pdf-card" href="assets/college/General_Chemistry_II_Practice.pdf" target="_blank">
         <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-        <div class="pdf-name">Acids &amp; Bases — Basics</div>
-        <div class="pdf-meta">Chapter Notes · PDF</div>
+        <div class="pdf-name">General Chemistry II Practice</div>
+        <div class="pdf-meta">Practice Set · PDF</div>
+        <span class="pdf-dl">Download ↓</span>
+      </a>
+      <a class="pdf-card" href="assets/college/Organic_Chemistry_Mechanisms.pdf" target="_blank">
+        <div class="pdf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="pdf-name">Organic Chemistry Mechanisms</div>
+        <div class="pdf-meta">Reference Guide · PDF</div>
         <span class="pdf-dl">Download ↓</span>
       </a>
     </div>
@@ -377,8 +308,8 @@
   <div class="footer-inner">
     <div>
       <div class="footer-logo"><img class="footer-logo-img" src="logo.svg" alt=""/><span class="footer-logo-text">Sciencephilia</span></div>
-      <p class="footer-tagline">Expert Chemistry tutoring for international students.</p>
-      <p class="footer-by">By <strong>Bhavna Saini</strong></p>
+      <p class="footer-tagline">Chemistry tutoring for high school, pre-college, and college students.</p>
+      <p class="footer-by">By <strong>Dr. Bhavna Saini</strong></p>
     </div>
     <div class="footer-col">
       <div class="footer-col-head">Navigate</div>
@@ -388,17 +319,16 @@
     </div>
     <div class="footer-col">
       <div class="footer-col-head">Courses</div>
-      <a href="courses.html#sat">SAT Prep</a><a href="courses.html#one-on-one">One-on-One</a>
-      <a href="courses.html#group">Group Batch</a><a href="courses.html#crash">Crash Course</a>
-      <a href="courses.html#foundation">Foundation</a>
+      <a href="courses.html#high-school">High School Chemistry</a><a href="courses.html#pre-college">Pre-College Chemistry</a>
+      <a href="courses.html#college">College Chemistry</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-head">Contact</div>
-      <p>bhavna@sciencephilia.com</p><p>+91 98765 43210</p>
+      <p>bhavnasainidu88@gmail.com</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Sciencephilia · Bhavna Saini.</span>
+    <span>© 2026 Sciencephilia · Dr. Bhavna Saini.</span>
     <span>Online Chemistry Tuitions Worldwide</span>
   </div>
 </footer>

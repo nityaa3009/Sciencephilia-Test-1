@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Contact – Sciencephilia</title>
+  <title>Contact – Dr. Bhavna Saini</title>
   <link rel="icon" type="image/svg+xml" href="logo.svg"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
@@ -221,7 +221,7 @@
   <div class="page-hero-inner">
     <div class="page-hero-eyebrow">Contact</div>
     <h1 class="page-hero-title">Get in Touch</h1>
-    <p class="page-hero-sub">Have a question, want to enroll, or just want to explore options? I respond within 24 hours.</p>
+    <p class="page-hero-sub">Have a question, want to enroll, or just want to explore options? Dr. Bhavna responds within 24 hours.</p>
   </div>
 </div>
 
@@ -232,7 +232,7 @@
     <div class="contact-left">
       <div>
         <h3 class="cl-intro-title">Let's talk about your goals.</h3>
-        <p class="cl-intro-text">Whether you're looking to enroll in a course, need help with a specific topic, or simply want to understand whether this is the right fit — fill in the form and I'll get back to you promptly.</p>
+        <p class="cl-intro-text">Whether you're looking to enroll in High School Chemistry, Pre-College Chemistry, or College Chemistry, or simply want to understand whether this is the right fit — fill in the form and Dr. Bhavna will get back to you promptly.</p>
       </div>
 
       <div class="contact-details">
@@ -240,7 +240,7 @@
           <div class="cd-dot" style="background:var(--orange)"></div>
           <div>
             <div class="cd-label">Email</div>
-            <div class="cd-val">bhavna@sciencephilia.com</div>
+            <div class="cd-val">bhavnasainidu88@gmail.com</div>
           </div>
         </div>
         <div class="cd-item reveal">
@@ -289,7 +289,7 @@
     </div>
 
     <!-- FORM -->
-    <form class="form" id="contactForm" name="google-sheet" method="POST" action="https://script.google.com/macros/s/AKfycbxDrV48tOtl3YgDbxyCpSxi79taDVNPjzyuiLZWNkv-qjJkhs85dG7CG58PtXt9f8z1/exec">
+    <form class="contact-form" id="contactForm" name="google-sheet" method="POST" action="https://script.google.com/macros/s/AKfycbxDrV48tOtl3YgDbxyCpSxi79taDVNPjzyuiLZWNkv-qjJkhs85dG7CG58PtXt9f8z1/exec">
       <div class="form-title">Send a message</div>
 
       <div class="form-row">
@@ -312,12 +312,15 @@
           <label for="course">Course of Interest</label>
           <select class="form-control" name="course" id="course">
             <option value="">Select a course…</option>
-            <option value="SAT Chemistry Prep">SAT Chemistry Prep</option>
-            <option value="One-on-One Classes">One-on-One Classes</option>
-            <option value="Group Batch Classes">Group Batch Classes</option>
-            <option value="Exam Crash Course">Exam Crash Course</option>
-            <option value="Doubt-Clearing Sessions">Doubt-Clearing Sessions</option>
-            <option value="Foundation Chemistry">Foundation Chemistry</option>
+            <option value="High School Chemistry Honors">High School Chemistry Honors</option>
+            <option value="IGCSE Chemistry">IGCSE Chemistry</option>
+            <option value="MYP Chemistry 4-5">MYP Chemistry 4-5</option>
+            <option value="AP Chemistry">AP Chemistry</option>
+            <option value="IGCSE AS and A Level">IGCSE AS and A Level</option>
+            <option value="IB Chemistry (HL)">IB Chemistry (HL)</option>
+            <option value="General Chemistry I">General Chemistry I</option>
+            <option value="General Chemistry II">General Chemistry II</option>
+            <option value="Organic Chemistry">Organic Chemistry</option>
             <option value="Not sure yet">Not sure yet</option>
           </select>
         </div>
@@ -332,7 +335,7 @@
         </div>
         <div class="form-group">
           <label for="exam">Upcoming Exam (if any)</label>
-          <input class="form-control" type="text" name="exam" id="exam" placeholder="e.g. SAT, A-Levels, IGCSE"/>
+          <input class="form-control" type="text" name="exam" id="exam" placeholder="e.g. AP, IGCSE, A Level, IB, college finals"/>
         </div>
       </div>
 
@@ -344,6 +347,9 @@
       <p class="form-note">By submitting this form you agree to be contacted via email or WhatsApp regarding your enquiry. I don't share your details with anyone.</p>
 
       <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+      <div class="form-success" id="formSuccess">
+        Message received — I'll be in touch within 24 hours.
+      </div>
     </form>
 
   </div>
@@ -369,15 +375,15 @@
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">What syllabi do you cover?</div>
-        <div class="faq-a">SAT Subject Test, IB Chemistry (SL and HL), IGCSE, A-Levels, AP Chemistry, and most national board syllabi. If you're unsure, mention it in your message and I'll confirm.</div>
+        <div class="faq-a">High School Chemistry Honors, IGCSE, MYP Chemistry 4-5, AP Chemistry, IGCSE AS and A Level, IB Chemistry (HL), General Chemistry I & II, and Organic Chemistry. If you're unsure, mention it in your message and I'll confirm.</div>
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">Can I switch courses mid-way?</div>
-        <div class="faq-a">Absolutely. If your needs change — say you start with doubt-clearing and want to move to a full one-on-one plan — that transition is easy and can be arranged with a week's notice.</div>
+        <div class="faq-a">Absolutely. If your needs change — say you start with one chemistry level and want to move to another — that transition is easy and can be arranged with a week's notice.</div>
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">How are payments handled?</div>
-        <div class="faq-a">Payment details are shared during onboarding. I accept international transfers, PayPal, and UPI. Monthly billing is standard; per-session billing is available for doubt-clearing.</div>
+        <div class="faq-a">Payment details are shared during onboarding. I accept international transfers, PayPal, and UPI. Billing options are discussed based on the course and lesson format.</div>
       </div>
     </div>
   </div>
@@ -391,8 +397,8 @@
         <img class="footer-logo-img" src="logo.svg" alt=""/>
         <span class="footer-logo-text">Sciencephilia</span>
       </div>
-      <p class="footer-tagline">Expert Chemistry tutoring for international students — personalized, structured, and results-driven.</p>
-      <p class="footer-by">By <strong>Bhavna Saini</strong></p>
+      <p class="footer-tagline">Chemistry tutoring for high school, pre-college, and college students.</p>
+      <p class="footer-by">By <strong>Dr. Bhavna Saini</strong></p>
     </div>
     <div class="footer-col">
       <div class="footer-col-head">Navigate</div>
@@ -405,21 +411,18 @@
     </div>
     <div class="footer-col">
       <div class="footer-col-head">Courses</div>
-      <a href="courses.html#sat">SAT Prep</a>
-      <a href="courses.html#one-on-one">One-on-One</a>
-      <a href="courses.html#group">Group Batch</a>
-      <a href="courses.html#crash">Crash Course</a>
-      <a href="courses.html#foundation">Foundation</a>
+      <a href="courses.html#high-school">High School Chemistry</a>
+      <a href="courses.html#pre-college">Pre-College Chemistry</a>
+      <a href="courses.html#college">College Chemistry</a>
     </div>
     <div class="footer-col">
       <div class="footer-col-head">Contact</div>
-      <p>bhavna@sciencephilia.com</p>
-      <p>+91 98765 43210</p>
+      <p>bhavnasainidu88@gmail.com</p>
       <p style="margin-top:6px;font-size:.78rem">Responds within 24 hours</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Sciencephilia · Bhavna Saini. All rights reserved.</span>
+    <span>© 2026 Sciencephilia · Dr. Bhavna Saini. All rights reserved.</span>
     <span>Online Chemistry Tuitions Worldwide</span>
   </div>
 </footer>

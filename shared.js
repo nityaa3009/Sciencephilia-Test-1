@@ -70,7 +70,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 mode: 'no-cors', // Add this to avoid CORS errors
             })
                 .then(() => {
-                    alert('Thanks for Contacting us! We will get back to you soon.');
+                  console.log('Success!');
                     form .reset();
                 })
                 .catch((error) => {
